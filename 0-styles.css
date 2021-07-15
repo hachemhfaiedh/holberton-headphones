@@ -381,12 +381,18 @@ body{
   margin-top: 0.5rem;
 }
 
-.list {
-    display: flex;
-    list-style-type: none;
-}
+
 .list-item {
+  color: white;
   margin-left: 1rem;
+  text-decoration: none;
+}
+.list-item:hover{
+  color: var(--orange);
+}
+h1{
+  text-indent: 0.5rem;
+  text-align: center;
 }
 
 .hero-section {
@@ -406,16 +412,80 @@ body{
     color: white;
     font-weight: bold;
     width: 10rem;
+    cursor: pointer;
 }
 
 blockquote {
-  width: 46rem;
   text-indent: 0.5rem;
   text-align: center;
   opacity: var(--opacity);
 }
 
+.menu-btn
+{
+  display: none;
+}
 
+@media only screen and (max-width: 480px) {
+  .header {
+    height: 120vh;
+  }
+  .navbar{
+    flex-wrap: wrap;
+  }
+  .logo {order: 2;
+  margin-left: 5rem;}
 
+  .ham {
+    order: 1;
+    transform: rotate(90deg);
+    margin-left: 0.5rem;
+  }
+  .lineOne, .lineThree, .lineTwo {
+    margin-left: 0.3rem;
+    padding-top: 0.5rem;
+    border: 0.1rem solid white;
+    background-color: white;
+    border-width: 0.1rem;
+  }
+  .lineTwo{
+  width:1px;
+  padding-top: 0;
+  }
+  nav.nav{
+    display:none;
+    order: 3;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-right: 5rem;
+    margin-left: 8.5rem;
+  }
+  blockquote{
+    width: 22rem;
+  }
+  h1{
+    text-indent: 0.5rem;
+    text-align: center;
+  }
+  .navbar{
+    justify-content: start;
+  }
+  #menu-btn:checked ~ label .ham .lineOne {
+    transform: rotate(45deg) translate(4px, 4px);
+    transition: transform 150ms ease;
+  }
 
+  #icon-btn:checked ~ label .ham.small {
+    transform: scaleX(0);
+    transition: transform 150ms ease;
+  }
+ 
+  #icon-btn:checked ~ label .ham.second {
+    transform: rotate(-45deg) translate(4px, -4px);
+    transition: transform 150ms ease;
+  }
 
+  #menu-btn:checked ~ label ~ nav.nav{
+    display: flex;
+  }
+}
